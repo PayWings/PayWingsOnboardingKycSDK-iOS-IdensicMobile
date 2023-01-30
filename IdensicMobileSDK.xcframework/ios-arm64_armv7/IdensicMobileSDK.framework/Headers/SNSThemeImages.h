@@ -57,6 +57,10 @@
 /// Default is a photos stack icon.
 @property (nonatomic, nonnull) UIImage *iconGallery;
 
+/// Used for the camera toggle button on the VideoIdent Screen.
+/// Default is a rounded arrows icon.
+@property (nonatomic, nonnull) UIImage *iconCameraToggle;
+
 /// Used for the rotation bar button on the Preview Screen.
 /// Default is a photo rotation icon.
 @property (nonatomic, nonnull) UIImage *iconRotate;
@@ -131,6 +135,10 @@
 /// @discussion
 /// The auto-generated image looks like the `iconSubmitted` icon in the circles composed on the basis of the `colors.contentWarning` and `colors.backgroundWarning` colors.
 @property (nonatomic, nullable) UIImage *pictureSubmitted;
+
+@property (nonatomic, nullable) UIImage *pictureGeolocationOn;
+
+@property (nonatomic, nullable) UIImage *pictureGeolocationOff;
 
 
 #pragma mark - Verification Steps

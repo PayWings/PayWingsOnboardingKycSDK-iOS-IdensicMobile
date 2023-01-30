@@ -561,6 +561,19 @@ typedef NS_ENUM(NSInteger, SNSThemeDimmingEffect) {
  */
 @property (nonatomic, nullable) UIColor *sns_CameraScreenInfoHandlerInsideColor;
 
+/**
+ * Default is `.center`
+ */
+@property (nonatomic) NSTextAlignment sns_CameraScreenInfoTitleAlignment;
+/**
+ * Default is `.center`
+ */
+@property (nonatomic) NSTextAlignment sns_CameraScreenInfoBriefAlignment;
+/**
+ * Default is `.natural`
+ */
+@property (nonatomic) NSTextAlignment sns_CameraScreenInfoDetailsAlignment;
+
 @property (nonatomic, nullable) UIImage *sns_CameraScreenTorchOnImage SNS_THEME_DEPRECATED("Use `images.iconTorchOn` instead.");
 @property (nonatomic, nullable) UIImage *sns_CameraScreenTorchOffImage SNS_THEME_DEPRECATED("Use `images.iconTorchOff` instead.");
 

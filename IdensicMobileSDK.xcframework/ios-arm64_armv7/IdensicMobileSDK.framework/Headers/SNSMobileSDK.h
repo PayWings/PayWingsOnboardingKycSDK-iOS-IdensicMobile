@@ -4,126 +4,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SNSMobileSDK+Enums.h"
 
 @class SNSMobileSDK;
 @class SNSSupportItem;
 @class SNSTheme;
 @class SNSActionResult;
 @class SNSEvent;
+@class SNSDocumentDefinition;
 @protocol SNSMobileSDKDelegate;
-
-/**
- * Environment the SDK should operate on
- */
-typedef NSString * SNSEnvironment NS_TYPED_EXTENSIBLE_ENUM;
-/// Test environment
-extern SNSEnvironment _Nonnull const SNSEnvironmentTest;
-/// Production environment
-extern SNSEnvironment _Nonnull const SNSEnvironmentProduction;
-
-/**
- * SDK Status
- */
-typedef NS_CLOSED_ENUM(NSInteger, SNSMobileSDKStatus) {
-    
-    /// SDK is initialized and ready to be presented
-    SNSMobileSDKStatus_Ready,
-    
-    /// SDK fails for some reasons (see `failReason` and `verboseStatus` for details)
-    SNSMobileSDKStatus_Failed,
-    
-    /// No verification steps are passed yet
-    SNSMobileSDKStatus_Initial,
-    
-    /// Some but not all of the verification steps have been passed over
-    SNSMobileSDKStatus_Incomplete,
-    
-    /// Verification is pending
-    SNSMobileSDKStatus_Pending,
-    
-    /// Applicant has been declined temporarily
-    SNSMobileSDKStatus_TemporarilyDeclined,
-    
-    /// Applicant has been finally rejected
-    SNSMobileSDKStatus_FinallyRejected,
-    
-    /// Applicant has been approved
-    SNSMobileSDKStatus_Approved,
-    
-    /// Applicant action has been completed (see `actionResult` for details)
-    SNSMobileSDKStatus_ActionCompleted,
-
-} NS_SWIFT_NAME(SNSMobileSDK.Status);
-
-/**
- * Fail reasons (see `verboseStatus` for details of the fail)
- */
-typedef NS_ENUM(NSInteger, SNSFailReason) {
-    
-    /// Unknown or no fail
-    SNSFailReason_Unknown,
-
-    /// An attempt to setup with invalid parameters
-    SNSFailReason_InvalidParameters,
-    
-    /// Unauthorized access detected (most likely `accessToken` is invalid or expired and had failed to be refreshed)
-    SNSFailReason_Unauthorized,
-
-    /// Initial loading from backend is failed
-    SNSFailReason_InitialLoadingFailed,
-    
-    /// No applicant is found for the given parameters
-    SNSFailReason_ApplicantNotFound,
-    
-    /// Applicant is found, but is misconfigured (most likely lacks of idDocs)
-    SNSFailReason_ApplicantMisconfigured,
-    
-    /// A network error occured (the user will be presented with Network Oops screen)
-    SNSFailReason_NetworkError,
-    
-    /// Some unexpected error occured (the user will be presented with Fatal Oops screen)
-    SNSFailReason_UnexpectedError,
-    
-    /// An initialization error occured
-    SNSFailReason_InitializationError,
-};
-
-/**
- * Reactions of `actionResultHandler`
- */
-typedef NS_ENUM(NSInteger, SNSActionResultHandlerReaction) {
-    
-    /// Allows further processing to be continued
-    SNSActionResultHandlerReaction_Continue = 0,
-    
-    /// Cancels further processing
-    SNSActionResultHandlerReaction_Cancel = 1,
-    
-};
-
-/**
- * Log levels
- */
-typedef NS_ENUM(NSInteger, SNSLogLevel) {
-    
-    /// Logs nothing
-    SNSLogLevel_Off = 0,
-    
-    /// Logs errors (default)
-    SNSLogLevel_Error = 1,
-
-    /// Logs warnings
-    SNSLogLevel_Warning = 2,
-
-    /// Logs debug info
-    SNSLogLevel_Info = 3,
-
-    /// Logs even more debug info
-    SNSLogLevel_Debug = 4,
-    
-    /// Logs as much as possible
-    SNSLogLevel_Trace = 5
-};
+@protocol SNSMobileSDKInfoProtocol;
 
 #pragma mark -
 
@@ -144,6 +34,13 @@ typedef void(^SNSOnEventCallback)(SNSMobileSDK * _Nonnull sdk, SNSEvent * _Nonnu
 @interface SNSMobileSDK : NSObject
 
 /**
+ * General info about the SDK
+ */
+@property (nonnull, readonly, class) id<SNSMobileSDKInfoProtocol> info;
+
+#pragma mark -
+
+/**
  * Prepares SDK for the launch in the production/sandbox environment
  *
  * @param accessToken An access token for the applicant to be verified. The token must be generated with a level name.
@@ -161,38 +58,23 @@ NS_SWIFT_NAME(init(accessToken:));
  * Prepares SDK for the launch with a level-aware access token
  *
  * @param accessToken An access token for the applicant to be verified. The token must be generated with a level name.
- * @param environment The environment the sdk should operate on. Use `.test` or `.production` depend on your needs.
+ * @param environment The environment the sdk should operate on. Default is `.production`.
  *
  * @discussion
  * Upon setup check `isReady` property. It should be `true` on success, otherwise see `failReason` and `verboseStatus` for the fail details.
  *
  * In case you need a custom environment to access the service, place it like this:
- * `environment: SNSEnvironment("https://my-api.mydomain.com")`
+ * @textblock
+ * sdk = SNSMobileSDK(
+ *     accessToken: accessToken,
+ *     environment: SNSEnvironment("https://my-api.mydomain.com")
+ * )
+ * @/textblock
  */
 + (nonnull instancetype)setupWithAccessToken:(nonnull NSString *)accessToken
                                  environment:(nonnull SNSEnvironment)environment
 
 NS_SWIFT_NAME(init(accessToken:environment:));
-
-/**
- * Prepares SDK for the launch with a flow
- *
- * @param baseUrl Base url to the backend. Please, use full qualified url with `https://` prefix
- * @param flowName The name of the applicant flow (must be set up via the dashboard)
- * @param accessToken An access token for the applicant to be verified
- * @param locale Use locale in a form of `en` or `en_US`
- * @param supportEmail A convinient way to configure Support screen with email only. See `supportItems` for more advanced ways.
- *
- * @discussion
- * Upon setup check `isReady` property. It should be `true` on success, otherwise see `failReason` and `verboseStatus` for the fail details.
- */
-+ (nonnull instancetype)setupWithBaseUrl:(nonnull NSString *)baseUrl
-                                flowName:(nonnull NSString *)flowName
-                             accessToken:(nonnull NSString *)accessToken
-                                  locale:(nullable NSString *)locale
-                            supportEmail:(nullable NSString *)supportEmail
-
-NS_SWIFT_NAME(init(baseUrl:flowName:accessToken:locale:supportEmail:)) DEPRECATED_MSG_ATTRIBUTE("Use init(accessToken:) instead.");
 
 + (nonnull instancetype)new NS_UNAVAILABLE;
 - (nonnull instancetype)init NS_UNAVAILABLE;
@@ -232,6 +114,46 @@ NS_SWIFT_NAME(init(baseUrl:flowName:accessToken:locale:supportEmail:)) DEPRECATE
  */
 @property (nonatomic, nullable) NSString *initialPhone;
 
+#pragma mark - Preferred Documents
+
+/**
+ * Sets an optional document definitions
+ *
+ * @discussion
+ * For IDENTITY* steps it's possible to specify the preferred country and document type to be selected automatically bypassing the DocType Selector screen.
+ *
+ * For example:
+ *
+ * @textblock
+ * sdk.preferredDocumentDefinitions = [
+ *     .identity: SNSDocumentDefinition(
+ *         idDocType: "DRIVERS",
+ *         country: "USA"
+ *     )
+ * ]
+ * @/textblock
+ */
+@property (nonatomic, nullable) NSDictionary<SNSVerificationStepKey, SNSDocumentDefinition *> *preferredDocumentDefinitions;
+
+/**
+ * Sets an optional document definitions from a specially formatted json
+ *
+ * @discussion
+ * For IDENTITY* steps it's possible to specify the preferred country and document type to be selected automatically bypassing the DocType Selector screen.
+ *
+ * For example:
+ *
+ * @textblock
+ * sdk.setPreferredDocumentDefinitions(json: [
+ *     "IDENTITY": [
+ *         "idDocType": "PASSPORT",
+ *         "country": "USA"
+ *     ]
+ * ])
+ * @/textblock
+ */
+- (void)setPreferredDocumentDefinitionsFromJSON:(nullable NSDictionary<NSString *, id> *)json NS_SWIFT_NAME(setPreferredDocumentDefinitions(json:));
+
 #pragma mark - UI
 
 /**
@@ -243,7 +165,7 @@ NS_SWIFT_NAME(init(baseUrl:flowName:accessToken:locale:supportEmail:)) DEPRECATE
 @property (nonatomic, readonly, nonnull) UINavigationController *mainVC;
 
 /**
- * Sets an optional handler to dimiss the main view controller
+ * Sets an optional handler to dismiss the main view controller
  *
  * @param handler A closure that takes two parameters - the SDK instance and the `mainVC` controller.
  * 
@@ -256,6 +178,15 @@ NS_SWIFT_NAME(init(baseUrl:flowName:accessToken:locale:supportEmail:)) DEPRECATE
  * Forces the `mainVC` to be dismissed
  */
 - (void)dismiss;
+
+/**
+ * Sets a time interval the sdk will be dismissed in when the applicant is approved (3 sec by default)
+ *
+ * @discussion
+ * By default, once the applicant is approved the sdk will be dismissed in 3 seconds automatically.
+ * Here you can adjust this time interval or switch the automatic dismissal off by setting value of zero.
+ */
+- (void)setOnApproveDismissalTimeInterval:(NSTimeInterval)timeInterval;
 
 #pragma mark - Shortcuts
 
@@ -341,7 +272,7 @@ NS_SWIFT_NAME(init(baseUrl:flowName:accessToken:locale:supportEmail:)) DEPRECATE
  */
 - (nonnull NSString *)descriptionForFailReason:(SNSFailReason)failReason;
 
-#pragma mark - Application Actions
+#pragma mark - Applicant Actions
 
 /**
  * Applicant Action result
@@ -403,7 +334,7 @@ NS_SWIFT_NAME(init(baseUrl:flowName:accessToken:locale:supportEmail:)) DEPRECATE
  * Array of items to be displayed at Support screen.
  *
  * @discussion
- * Initially if non-empty `supportEmail` parameter passed during setup, then Email item would be auto created.
+ * Initially an Email item would be created automatically using the Support email configured in your dashboard.
  *
  * Feel free to reconfigure support items as required. See `SNSSupportItem` for details.
  */
@@ -434,6 +365,14 @@ NS_SWIFT_NAME(init(baseUrl:flowName:accessToken:locale:supportEmail:)) DEPRECATE
 - (void)logHandler:(nullable SNSLogHandler)handler;
 
 #pragma mark - Settings
+
+/**
+ * Enables or disables the internal sdk analytics (enabled by default)
+ *
+ * @discussion
+ * Setting to `false` disables the emitting of `SNSEventAnalytics` as well
+ */
+@property (nonatomic) BOOL isAnalyticsEnabled;
 
 /**
  * Custom settings
