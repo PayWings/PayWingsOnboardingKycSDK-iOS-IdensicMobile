@@ -130,6 +130,10 @@ typedef NS_ENUM(NSUInteger, SNSCardStyle) {
 /// Default is `.filled`.
 @property (nonatomic) SNSCardStyle verificationStepCardStyle;
 
+/// The style of a verification comment block that can be displayed when the applicant is temporarily declined.
+/// Default is `.bordered`.
+@property (nonatomic) SNSCardStyle verificationCommentCardStyle;
+
 /// The support items card style.
 /// Default is `.bordered`.
 @property (nonatomic) SNSCardStyle supportItemCardStyle;

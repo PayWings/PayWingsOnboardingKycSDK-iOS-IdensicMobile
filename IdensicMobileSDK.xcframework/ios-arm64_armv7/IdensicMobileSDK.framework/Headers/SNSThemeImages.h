@@ -69,9 +69,13 @@
 /// Default is a letter icon.
 @property (nonatomic, nonnull) UIImage *iconMail;
 
-/// Used the play button on the Preview screen.
+/// Used for the play button on the Preview screen.
 /// Default is a play icon in the circle.
 @property (nonatomic, nonnull) UIImage *iconPlay;
+
+/// Used on the verification comment block at the Status Screen
+/// Default is an exclamation mark in the triangle.
+@property (nonatomic, nonnull) UIImage *iconNotice;
 
 /// Used for unmarked checkboxes.
 /// Default is an empty rectangle icon with `contentWeak` border color.
@@ -136,8 +140,12 @@
 /// The auto-generated image looks like the `iconSubmitted` icon in the circles composed on the basis of the `colors.contentWarning` and `colors.backgroundWarning` colors.
 @property (nonatomic, nullable) UIImage *pictureSubmitted;
 
+/// Used as the image on the Geolocation Screen before the start of geolocation detection.
+/// Default is a geolocation pin icon.
 @property (nonatomic, nullable) UIImage *pictureGeolocationOn;
 
+/// Used as the image on the Geolocation Screen when the app has no permissions to get the geolocation.
+/// Default is a crossed geolocation pin icon.
 @property (nonatomic, nullable) UIImage *pictureGeolocationOff;
 
 
@@ -145,7 +153,7 @@
 
 /// Verification steps icons.
 ///
-/// Default icons are defined for the following keys: `.identity`, `.selfie`, `.selfie2`, `.proofOfResidence`, `.proofOfResidence2`, `.applicantData`, `.emailVerification`,`.phoneVerification` and `.questionnaire`.
+/// Default icons are defined for the following keys: `.identity`, `.selfie`, `.selfie2`, `.proofOfResidence`, `.proofOfResidence2`, `.applicantData`, `.emailVerification`, `.phoneVerification`, `.questionnaire` and `.ekyc`.
 /// Also the `.default` key is filled with the `.identity` icon.
 @property (nonatomic, nonnull) NSDictionary<SNSVerificationStepKey, UIImage *> *verificationStepIcons;
 
@@ -186,6 +194,7 @@
 /// Feel free to add your own pictures or use the predefined ones:
 ///
 /// @textblock
+/// - `default/videoident`
 /// - `default/facescan`
 /// - `default/do_idCard`
 /// - `default/dont_idCard`

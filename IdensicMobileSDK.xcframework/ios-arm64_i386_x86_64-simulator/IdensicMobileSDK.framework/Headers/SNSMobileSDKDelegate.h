@@ -79,7 +79,8 @@ extern SNSUserNotificationType _Nonnull const SNSUserNotificationTypeVideoIdentE
   instructionsViewForVerificationStep:(nonnull SNSVerificationStepKey)verificationStep
                           countryCode:(nonnull NSString *)countryCode
                          documentType:(nonnull SNSDocumentTypeKey)documentType
-                            sceneType:(nonnull SNSSceneType)sceneType;
+                            sceneType:(nonnull SNSSceneType)sceneType
+                            placement:(SNSInstructionsPlacement)placement;
 
 /**
  * Implement if you'd like to show a custom mrtd instruction view.
@@ -90,6 +91,16 @@ extern SNSUserNotificationType _Nonnull const SNSUserNotificationTypeVideoIdentE
 - (nullable UIView *)snsMobileSDK:(nonnull SNSMobileSDK *)sdk
                  mrtdViewForState:(nonnull SNSMRTDScanState)mrtdState;
 
+/**
+ * Implement if you'd like to show a custom verification comment view.
+ *
+ * @discussion
+ * Verification comment view can be displayed at the Status Screen when the applicant is declined temporarily.
+ *
+ * Returning `nil` means the view will be constructed and shown by the sdk itself.
+ */
+- (nullable UIView *)snsMobileSDK:(nonnull SNSMobileSDK *)sdk
+   verificationCommentViewForText:(nonnull NSString *)moderationComment;
 
 /**
  * Implement if you'd like to show custom dialogs before asking for permissions or in respond to the permission denied.
@@ -119,6 +130,18 @@ extern SNSUserNotificationType _Nonnull const SNSUserNotificationTypeVideoIdentE
 - (void)  snsMobileSDK:(nonnull SNSMobileSDK *)sdk
   sendUserNotification:(nonnull SNSUserNotificationType)notificationType
                message:(nonnull NSString *)message;
+
+/**
+ * Implement if you'd like to manage the URLs handling yourself
+ */
+- (void)snsMobileSDK:(nonnull SNSMobileSDK *)sdk
+             openURL:(nonnull NSURL *)url
+                from:(nonnull UIViewController *)topViewController;
+/**
+ * Implement if you'd like to show custom Support Screen
+ */
+- (void)      snsMobileSDK:(nonnull SNSMobileSDK *)sdk
+  presentSupportScreenFrom:(nonnull UIViewController *)topViewController;
 
 @end
 

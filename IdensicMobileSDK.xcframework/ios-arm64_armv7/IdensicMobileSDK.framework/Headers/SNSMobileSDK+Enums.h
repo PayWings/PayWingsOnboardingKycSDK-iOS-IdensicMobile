@@ -137,6 +137,7 @@ extern SNSVerificationStepKey _Nonnull const SNSVerificationStepKeyEmailVerifica
 extern SNSVerificationStepKey _Nonnull const SNSVerificationStepKeyPhoneVerification;
 extern SNSVerificationStepKey _Nonnull const SNSVerificationStepKeyQuestionnaire;
 extern SNSVerificationStepKey _Nonnull const SNSVerificationStepKeyVideoIdent;
+extern SNSVerificationStepKey _Nonnull const SNSVerificationStepKeyEkyc;
 
 typedef NSString * SNSVerificationStepState NS_TYPED_EXTENSIBLE_ENUM;
 extern SNSVerificationStepState _Nonnull const SNSVerificationStepStateNotSubmitted;
@@ -156,17 +157,25 @@ typedef NSString * SNSSceneType NS_TYPED_EXTENSIBLE_ENUM;
 extern SNSSceneType _Nonnull const SNSSceneTypeFacescan;
 extern SNSSceneType _Nonnull const SNSSceneTypeVideoSelfie;
 extern SNSSceneType _Nonnull const SNSSceneTypePhotoSelfie;
+extern SNSSceneType _Nonnull const SNSSceneTypePortraitSelfie;
 extern SNSSceneType _Nonnull const SNSSceneTypeScanFrontSide;
 extern SNSSceneType _Nonnull const SNSSceneTypeScanBackSide;
 extern SNSSceneType _Nonnull const SNSSceneTypeData;
 extern SNSSceneType _Nonnull const SNSSceneTypeConfirmation;
 extern SNSSceneType _Nonnull const SNSSceneTypeQuestionnaire;
 extern SNSSceneType _Nonnull const SNSSceneTypeVideoIdent;
+extern SNSSceneType _Nonnull const SNSSceneTypeGeolocation;
+extern SNSSceneType _Nonnull const SNSSceneTypeEkyc;
 
 typedef NSString * SNSInstructionsBlockType NS_TYPED_EXTENSIBLE_ENUM;
 extern SNSInstructionsBlockType _Nonnull const SNSInstructionsBlockTypeSingle;
 extern SNSInstructionsBlockType _Nonnull const SNSInstructionsBlockTypeDo;
 extern SNSInstructionsBlockType _Nonnull const SNSInstructionsBlockTypeDont;
+
+typedef NS_ENUM(NSInteger, SNSInstructionsPlacement) {
+    SNSInstructionsPlacement_InstructionsScreen,
+    SNSInstructionsPlacement_BottomSheet,
+};
 
 typedef NSString * SNSMRTDScanState NS_TYPED_EXTENSIBLE_ENUM;
 extern SNSMRTDScanState _Nonnull const SNSMRTDScanStatePreparing;
