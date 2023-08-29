@@ -146,6 +146,10 @@ typedef NS_ENUM(NSUInteger, SNSCardStyle) {
 /// Default is `.filled`.
 @property (nonatomic) SNSCardStyle selectedCountryCardStyle;
 
+/// The agreement items card style.
+/// Default is `.bordered`.
+@property (nonatomic) SNSCardStyle agreementItemCardStyle;
+
 /// The cards' corners radius.
 /// Default is 8pt.
 @property (nonatomic) CGFloat cardCornerRadius;

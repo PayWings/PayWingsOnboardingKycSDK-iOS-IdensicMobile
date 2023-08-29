@@ -93,6 +93,10 @@
 /// Default is a white circle icon on a backround circle with `fieldTint` color.
 @property (nonatomic, nonnull) UIImage *iconRadioButtonOn;
 
+/// Used for "Other" option on Agreement screen.
+/// Default is a earth icon.
+@property (nonatomic, nonnull) UIImage *iconOtherCountry;
+
 /// Used to compose the auto-generated `pictureSuccess`.
 /// Default is a checkmark icon.
 @property (nonatomic, nonnull) UIImage *iconSuccess;
@@ -148,12 +152,16 @@
 /// Default is a crossed geolocation pin icon.
 @property (nonatomic, nullable) UIImage *pictureGeolocationOff;
 
+/// Displayed at the top of the Agreement Screen.
+/// Default is a globe decorated.
+@property (nonatomic, nullable) UIImage *pictureAgreement;
+
 
 #pragma mark - Verification Steps
 
 /// Verification steps icons.
 ///
-/// Default icons are defined for the following keys: `.identity`, `.selfie`, `.selfie2`, `.proofOfResidence`, `.proofOfResidence2`, `.applicantData`, `.emailVerification`, `.phoneVerification`, `.questionnaire` and `.ekyc`.
+/// Default icons are defined for the following keys: `.identity`, `.selfie`, `.selfie2`, `.proofOfResidence`, `.proofOfResidence2`, `.applicantData`, `.emailVerification`, `.phoneVerification`, `.questionnaire`, `.videoIdent` and `.ekyc`.
 /// Also the `.default` key is filled with the `.identity` icon.
 @property (nonatomic, nonnull) NSDictionary<SNSVerificationStepKey, UIImage *> *verificationStepIcons;
 
