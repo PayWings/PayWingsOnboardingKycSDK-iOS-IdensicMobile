@@ -134,6 +134,28 @@
 @property (nonatomic, nonnull) UIColor *secondaryButtonContentDisabled;
 
 
+#pragma mark - Field Button
+
+/// The field button background color in the highlighted state. Used for the phone field's country button.
+/// Default is equal to the `.fieldTint` color with alpha 10%.
+@property (nonatomic, nonnull) UIColor *fieldButtonBackgroundHighlighted;
+
+
+#pragma mark - Link Button
+
+/// The link button background color in the highlighted state.
+/// Default is equal to the `.contentLink` color with alpha 10%.
+@property (nonatomic, nonnull) UIColor *linkButtonBackgroundHighlighted;
+
+/// The link button foreground color in the normal state.
+/// Default is equal to the `.contentLink` color.
+@property (nonatomic, nonnull) UIColor *linkButtonContent;
+
+/// The link button foreground color in the disabled state.
+/// Default is equal to the `.contentLink` color with alpha 40%.
+@property (nonatomic, nonnull) UIColor *linkButtonContentDisabled;
+
+
 #pragma mark - Card
 
 /// Used as a background color for the cards with `.plain` card style.

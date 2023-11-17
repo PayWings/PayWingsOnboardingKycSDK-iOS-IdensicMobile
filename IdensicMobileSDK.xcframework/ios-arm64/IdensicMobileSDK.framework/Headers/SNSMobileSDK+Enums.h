@@ -166,7 +166,6 @@ extern SNSSceneType _Nonnull const SNSSceneTypeGeolocation;
 extern SNSSceneType _Nonnull const SNSSceneTypeEkyc;
 
 typedef NSString * SNSInstructionsBlockType NS_TYPED_EXTENSIBLE_ENUM;
-extern SNSInstructionsBlockType _Nonnull const SNSInstructionsBlockTypeCustom;
 extern SNSInstructionsBlockType _Nonnull const SNSInstructionsBlockTypeSingle;
 extern SNSInstructionsBlockType _Nonnull const SNSInstructionsBlockTypeDo;
 extern SNSInstructionsBlockType _Nonnull const SNSInstructionsBlockTypeDont;

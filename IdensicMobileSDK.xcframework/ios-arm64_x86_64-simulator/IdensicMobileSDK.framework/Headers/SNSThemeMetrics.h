@@ -35,6 +35,15 @@ typedef NS_ENUM(NSUInteger, SNSCardStyle) {
     SNSCardStyle_Bordered,
 };
 
+typedef NS_ENUM(NSUInteger, SNSDoubleSidePromptAction) {
+
+    /// With `.no` action the 'No' button will apper on the trailing side of the alert.
+    SNSDoubleSidePromptAction_No,
+    
+    /// With `.yes` action the 'Yes' button will apper on the trailing side of the alert.
+    SNSDoubleSidePromptAction_Yes,
+};
+
 @interface SNSThemeMetrics : SNSThemeSection
 
 #pragma mark - Common
@@ -173,5 +182,11 @@ typedef NS_ENUM(NSUInteger, SNSCardStyle) {
 @property (nonatomic) NSTextAlignment sectionHeaderAlignment;
 @property (nonatomic) NSTextAlignment listSectionTitleAlignment SNS_THEME_DEPRECATED("Use `metrics.sectionHeaderAlignment` instead.");
 
+
+#pragma mark - Preferences
+
+/// The preferred action for the alert with the double-side document prompt.
+/// Default is `.no`.
+@property (nonatomic) SNSDoubleSidePromptAction preferredDoubleSidePromptAction;
 
 @end
