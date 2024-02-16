@@ -13,7 +13,7 @@
 /// Default is #94A0B8 and #FFFFFF with alpha 40% for the dark appearance.
 @property (nonatomic, nonnull) UIColor *navigationBarItem;
 
-/// Used for the system alert actions and the toolbar buttons.
+/// Used for the system alert actions.
 /// Default is #1693E9 and #1485D1 for the dark appearance.
 @property (nonatomic, nonnull) UIColor *alertTint;
 
@@ -169,9 +169,13 @@
 
 #pragma mark - Camera
 
-/// The Camera Screen background color.
+/// The Camera Screen's background color.
 /// Default is #1E232E.
 @property (nonatomic, nonnull) UIColor *cameraBackground;
+
+/// The Camera Screen's overlay background color.
+/// Default is #1E232E with alpha 75%
+@property (nonatomic, nonnull) UIColor *cameraBackgroundOverlay;
 
 /// Used as a tint color for the elements placed on the Camera Screen such as the gallery button, the touch button, etc.
 /// Default is #FFFFFF.
@@ -228,5 +232,16 @@
 /// The background color of the bottom sheet.
 /// Default is #FFFFFF and #333C4D for the dark appearance.
 @property (nonatomic, nonnull) UIColor *bottomSheetBackground;
+
+
+#pragma mark - Toolbar
+
+/// Used for the toolbar buttons.
+/// Default is #5C6B8A and #FFFFFF with alpha 60% for the dark appearance.
+@property (nonatomic, nonnull) UIColor *toolbarTint;
+
+/// Used as a background color for the toolbar.
+/// Default is `nil`, the system background color is applied.
+@property (nonatomic, nullable) UIColor *toolbarBackground;
 
 @end

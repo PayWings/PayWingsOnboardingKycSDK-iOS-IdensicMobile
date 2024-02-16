@@ -156,6 +156,10 @@
 /// Default is a globe decorated.
 @property (nonatomic, nullable) UIImage *pictureAgreement;
 
+/// Displayed at the Camera Screen before the back side of a document is going to be captured.
+/// Default is an ID document with a rotating arrow below.
+@property (nonatomic, nullable) UIImage *pictureDocumentFlip;
+
 
 #pragma mark - Verification Steps
 

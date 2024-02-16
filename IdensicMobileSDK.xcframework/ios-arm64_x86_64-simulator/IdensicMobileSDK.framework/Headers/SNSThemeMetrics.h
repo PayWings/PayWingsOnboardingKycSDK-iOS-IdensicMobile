@@ -90,13 +90,6 @@ typedef NS_ENUM(NSUInteger, SNSDoubleSidePromptAction) {
 @property (nonatomic) CGFloat buttonBorderWidth;
 
 
-#pragma mark - Camera
-
-/// The status bar style on the Camera Screen.
-/// Default is `.default`.
-@property (nonatomic) UIStatusBarStyle cameraStatusBarStyle;
-
-
 #pragma mark - Fields
 
 /// The input fields height.
@@ -113,6 +106,24 @@ typedef NS_ENUM(NSUInteger, SNSDoubleSidePromptAction) {
 /// The input fields corner radius. Used for the search bar only at the moment.
 /// Default is 8pt.
 @property (nonatomic) CGFloat fieldCornerRadius;
+
+
+#pragma mark - Camera
+
+/// The status bar style on the Camera Screen.
+/// Default is `.default`.
+@property (nonatomic) UIStatusBarStyle cameraStatusBarStyle;
+
+
+#pragma mark - Document Frame
+
+/// The document frame's border width.
+/// Default is 2pt.
+@property (nonatomic) CGFloat documentFrameBorderWidth;
+
+/// The document frame's corner radius.
+/// Default is 14pt.
+@property (nonatomic) CGFloat documentFrameCornerRadius;
 
 
 #pragma mark - Viewport
