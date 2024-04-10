@@ -44,20 +44,15 @@ typedef NS_ENUM(NSInteger, SNSThemeDimmingEffect) {
 
 #pragma mark - General
 
-@property (nonatomic) UIStatusBarStyle sns_preferredStatusBarStyle SNS_THEME_DEPRECATED("Use `metrics.commonStatusBarStyle` instead.");
-/**
- * Matches to `colors.backgroundCommon` by default
- */
-@property (nonatomic, nullable) UIColor *sns_navbarBarTintColor;
-/**
- * Matches to `colors.navigationBarItem` by default
- */
-@property (nonatomic, nullable) UIColor *sns_navbarTintColor;
+@property (nonatomic) UIStatusBarStyle sns_preferredStatusBarStyle SNS_THEME_DEPRECATED("Replaced with `metrics.commonStatusBarStyle`");
+
+@property (nonatomic, nullable) UIColor *sns_navbarBarTintColor SNS_THEME_DEPRECATED("Not used. The background color of the navigation bar matches the screen background.");
+@property (nonatomic, nullable) UIColor *sns_navbarTintColor SNS_THEME_DEPRECATED("Replaced with `colors.navigationBarItem`");
 
 @property (nonatomic, nullable) UIImage *sns_closeButtonImage SNS_THEME_DEPRECATED("Use `images.iconClose` instead.");
 @property (nonatomic, nullable) UIImage *sns_searchIconImage SNS_THEME_DEPRECATED("Use `images.iconSearch` instead.");
 
-@property (nonatomic, nullable) UIColor *sns_alertTintColor SNS_THEME_DEPRECATED("Use `colors.alertTint` instead.");
+@property (nonatomic, nullable) UIColor *sns_alertTintColor SNS_THEME_DEPRECATED("Replaced with `colors.alertTint`");
 
 @property (nonatomic, nullable) UIFont *sns_poweredByFont SNS_THEME_DEPRECATED("Replaced with `fonts.caption`");
 @property (nonatomic, nullable) UIColor *sns_poweredByColor SNS_THEME_DEPRECATED("Replaced with `colors.contentWeak`");
@@ -70,7 +65,7 @@ typedef NS_ENUM(NSInteger, SNSThemeDimmingEffect) {
  * Matches to `colors.contentWeak` by default
  */
 @property (nonatomic, nullable) UIColor *sns_loadingMessageColor;
-@property (nonatomic) UIActivityIndicatorViewStyle sns_loadingSpinnerStyle SNS_THEME_DEPRECATED("Use `metrics.activityIndicatorStyle` instead.");
+@property (nonatomic) UIActivityIndicatorViewStyle sns_loadingSpinnerStyle SNS_THEME_DEPRECATED("Replaced with `metrics.activityIndicatorStyle`");
 
 #pragma mark - Buttons
 
@@ -81,15 +76,15 @@ typedef NS_ENUM(NSInteger, SNSThemeDimmingEffect) {
 @property (nonatomic) CGFloat sns_actionButtonCornerRadius SNS_THEME_DEPRECATED("Use `metrics.buttonCornerRadius` instead.");
 @property (nonatomic) CGFloat sns_actionButtonHeight SNS_THEME_DEPRECATED("Use `metrics.buttonHeight` instead.");
 
-@property (nonatomic, nullable) UIColor *sns_actionButtonTitleColor SNS_THEME_DEPRECATED("Use `colors.primaryButtonContent` instead.");
-@property (nonatomic, nullable) UIColor *sns_actionButtonBackgroundColor SNS_THEME_DEPRECATED("Use `colors.primaryButtonBackground` instead.");
-@property (nonatomic, nullable) UIColor *sns_actionButtonHighlightedTitleColor SNS_THEME_DEPRECATED("Use `colors.primaryButtonContentHighlighted` instead.");
-@property (nonatomic, nullable) UIColor *sns_actionButtonHighlightedBackgroundColor SNS_THEME_DEPRECATED("Use `colors.primaryButtonBackgroundHighlighted` instead.");
+@property (nonatomic, nullable) UIColor *sns_actionButtonTitleColor SNS_THEME_DEPRECATED("Replaced with `colors.primaryButtonContent`");
+@property (nonatomic, nullable) UIColor *sns_actionButtonBackgroundColor SNS_THEME_DEPRECATED("Replaced with `colors.primaryButtonBackground`");
+@property (nonatomic, nullable) UIColor *sns_actionButtonHighlightedTitleColor SNS_THEME_DEPRECATED("Replaced with `colors.primaryButtonContentHighlighted`");
+@property (nonatomic, nullable) UIColor *sns_actionButtonHighlightedBackgroundColor SNS_THEME_DEPRECATED("Replaced with `colors.primaryButtonBackgroundHighlighted`");
 
-@property (nonatomic, nullable) UIColor *sns_alternativeButtonTitleColor SNS_THEME_DEPRECATED("Use `colors.secondaryButtonContent` instead.");
-@property (nonatomic, nullable) UIColor *sns_alternativeButtonBackgroundColor SNS_THEME_DEPRECATED("Use `colors.secondaryButtonBackground` instead.");
-@property (nonatomic, nullable) UIColor *sns_alternativeButtonHighlightedTitleColor SNS_THEME_DEPRECATED("Use `colors.secondaryButtonContentHighlighted` instead.");
-@property (nonatomic, nullable) UIColor *sns_alternativeButtonHighlightedBackgroundColor SNS_THEME_DEPRECATED("Use `colors.secondaryButtonBackgroundHighlighted` instead.");
+@property (nonatomic, nullable) UIColor *sns_alternativeButtonTitleColor SNS_THEME_DEPRECATED("Replaced with `colors.secondaryButtonContent`");
+@property (nonatomic, nullable) UIColor *sns_alternativeButtonBackgroundColor SNS_THEME_DEPRECATED("Replaced with `colors.secondaryButtonBackground`");
+@property (nonatomic, nullable) UIColor *sns_alternativeButtonHighlightedTitleColor SNS_THEME_DEPRECATED("Replaced with `colors.secondaryButtonContentHighlighted`");
+@property (nonatomic, nullable) UIColor *sns_alternativeButtonHighlightedBackgroundColor SNS_THEME_DEPRECATED("Replaced with `colors.secondaryButtonBackgroundHighlighted`");
 /**
  * Matches to `colors.secondaryButtonContent` by default
  */
@@ -269,7 +264,7 @@ typedef NS_ENUM(NSInteger, SNSThemeDimmingEffect) {
  */
 @property (nonatomic, nullable) UIFont *sns_idDocStatusNotSubmittedSubtitleFont;
 /**
- * Matches to `colors.contentStrong` by default
+ * Matches to `colors.contentNeutral` by default
  */
 @property (nonatomic, nullable) UIColor *sns_idDocStatusNotSubmittedTextColor;
 /**
@@ -332,7 +327,10 @@ typedef NS_ENUM(NSInteger, SNSThemeDimmingEffect) {
 @property (nonatomic, nullable) UIColor *sns_idDocStatusApprovedBackgroundColor;
 @property (nonatomic, nullable) UIImage *sns_idDocStatusApprovedImage SNS_THEME_DEPRECATED("Use images.setIcon(:forVerificationStep:andState:)");
 
-@property (nonatomic) CGFloat sns_idDocBackgroundCornerRadius SNS_THEME_DEPRECATED("Use `metrics.cardCornerRadius` instead.");
+/**
+ * Matches to `metrics.cardCornerRadius` by default
+ */
+@property (nonatomic) CGFloat sns_idDocBackgroundCornerRadius;
 /**
  * Used to estimate the highlighted background color by applying the factor to the normal background color
  *
@@ -347,7 +345,7 @@ typedef NS_ENUM(NSInteger, SNSThemeDimmingEffect) {
  *
  * Default is 0.15f
  */
-@property (nonatomic) CGFloat sns_idDocDisclosureDarkFactor SNS_THEME_DEPRECATED("Unused");
+@property (nonatomic) CGFloat sns_idDocDisclosureDarkFactor;
 /**
  * The disclosure color, if defined, is applied instead of the `sns_idDocDisclosureDarkFactor`
  *
@@ -390,14 +388,18 @@ typedef NS_ENUM(NSInteger, SNSThemeDimmingEffect) {
  * Matches to `colors.contentStrong` by default
  */
 @property (nonatomic, nullable) UIColor *sns_DocTypeScreenSectionTitleColor;
-@property (nonatomic) NSTextAlignment sns_DocTypeScreenSectionTitleAlignment SNS_THEME_DEPRECATED("Use `metrics.sectionHeaderAlignment` instead");
+
+/**
+ * Matches to `metrics.sectionHeaderAlignment` by default
+ */
+@property (nonatomic) NSTextAlignment sns_DocTypeScreenSectionTitleAlignment;
 
 /**
  * Matches to `fonts.headline2` by default
  */
 @property (nonatomic, nullable) UIFont *sns_DocTypeScreenSectionSubtitleFont;
 /**
- * Matches to `colors.contentStrong` by default
+ * Matches to `colors.contentNeutral` by default
  */
 @property (nonatomic, nullable) UIColor *sns_DocTypeScreenSectionSubtitleColor;
 
@@ -503,7 +505,7 @@ typedef NS_ENUM(NSInteger, SNSThemeDimmingEffect) {
 
 #pragma mark - Camera Screen
 
-@property (nonatomic, nullable) UIColor *sns_CameraScreenBackgroundColor SNS_THEME_DEPRECATED("Use `colors.cameraBackground` instead.");
+@property (nonatomic, nullable) UIColor *sns_CameraScreenBackgroundColor SNS_THEME_DEPRECATED("Replaced with `colors.cameraBackground`");
 /**
  * Matches to `colors.cameraContent` by default
  */
@@ -644,7 +646,7 @@ typedef NS_ENUM(NSInteger, SNSThemeDimmingEffect) {
 /**
  * Background color of the Video Screen's panel the text to read is displayed at
  *
- * Default is #1E232E with alpha 80%
+ * Default is #1E232E
  */
 @property (nonatomic, nullable) UIColor *sns_VideoScreenReadAloudBackgroundColor;
 
@@ -779,7 +781,7 @@ typedef NS_ENUM(NSInteger, SNSThemeDimmingEffect) {
 /**
  * Specifies the shift of the warning icon displayed at the top right corner of the slider (only vertical shift is applied)
  *
- * Default vertical shift is -4pt
+ * Default vertical shift is 0pt
  */
 @property (nonatomic) CGPoint sns_PreviewScreenSliderIconPosition;
 
@@ -835,11 +837,8 @@ typedef NS_ENUM(NSInteger, SNSThemeDimmingEffect) {
  */
 @property (nonatomic, nullable) UIColor *sns_SupportScreenItemDescriptionColor SNS_THEME_DEPRECATED("Unused");
 
-/**
- * Matches to `colors.contentWeak`
- */
 @property (nonatomic, nullable) UIColor *sns_SupportScreenEmailImageTintColor SNS_THEME_DEPRECATED("Unused");
-@property (nonatomic, nullable) UIImage *sns_SupportScreenEmailImage SNS_THEME_DEPRECATED("Unused. Replaced with `images.iconMail`");
+@property (nonatomic, nullable) UIImage *sns_SupportScreenEmailImage SNS_THEME_DEPRECATED("Replaced with `images.iconMail`");
 
 #pragma mark - ToS Screen
 
@@ -880,7 +879,7 @@ typedef NS_ENUM(NSInteger, SNSThemeDimmingEffect) {
  */
 @property (nonatomic, nullable) UIColor *sns_DataScreenNameColor SNS_THEME_DEPRECATED("Unused");
 /**
- * Matches to `colors.contentNeutral` by default
+ * Matches to `colors.fieldContent` by default
  */
 @property (nonatomic, nullable) UIColor *sns_DataScreenValueColor SNS_THEME_DEPRECATED("Unused");
 /**

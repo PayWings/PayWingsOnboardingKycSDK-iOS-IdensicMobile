@@ -46,6 +46,17 @@ typedef NS_ENUM(NSUInteger, SNSDoubleSidePromptAction) {
 
 @interface SNSThemeMetrics : SNSThemeSection
 
+#pragma mark - Content Size
+
+/// Defines whether the fonts, images, metrics and layouts should be adjusted in order to respect the user's preferred content size category.
+/// Default is `true`.
+@property (nonatomic) BOOL respectsPreferredContentSizeCategory;
+
+/// Reports the content size category the sdk effectively uses to adjust the corresponding metrics at the moment.
+/// Default is `.large`.
+@property (nonatomic, nonnull, readonly) UIContentSizeCategory effectiveContentSizeCategory;
+
+
 #pragma mark - Common
 
 /// The status bar style on all the screens.
