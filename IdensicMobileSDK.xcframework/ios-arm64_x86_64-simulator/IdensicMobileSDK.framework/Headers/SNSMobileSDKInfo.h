@@ -17,6 +17,8 @@
 @property (nonnull, readonly) NSString *build;
 /// The list of the steps supported
 @property (nonnull, readonly) NSArray<SNSVerificationStepKey> *supportedSteps;
+/// The list of the steps allowed in applicant actions
+@property (nonnull, readonly) NSArray<SNSVerificationStepKey> *actionAllowedSteps;
 /// The list of the pluggable modules and their status
 @property (nonnull, readonly) NSDictionary<NSString *, NSString *> *modules;
 

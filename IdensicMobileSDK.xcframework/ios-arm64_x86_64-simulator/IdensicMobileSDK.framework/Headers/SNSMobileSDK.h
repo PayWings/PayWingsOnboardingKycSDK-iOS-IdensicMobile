@@ -272,20 +272,20 @@ NS_SWIFT_NAME(init(accessToken:environment:));
  */
 - (nonnull NSString *)descriptionForFailReason:(SNSFailReason)failReason;
 
-#pragma mark - Applicant Actions
+#pragma mark - Face Auth Action
 
 /**
- * Applicant Action result
+ * Face Auth action result
  */
 @property (nonatomic, readonly, nullable) SNSActionResult *actionResult;
 
 /**
- * Sets an optional handler to be called right after a new `actionResult` is arrived from the backend.
+ * Sets an optional handler to be called right after a new `actionResult` is arrived from the backend during a Face Auth action.
  *
  * @param handler A closure that takes `sdk`, `result` and `onComplete` closure.
  *
  * @discussion
- * MUST call `onComplete` with a desired reaction:
+ * You MUST call `onComplete` with a desired reaction:
  * - pass `.continue` to proceed with default scenario
  * - or pass `.cancel` to force the processing to complete
  */

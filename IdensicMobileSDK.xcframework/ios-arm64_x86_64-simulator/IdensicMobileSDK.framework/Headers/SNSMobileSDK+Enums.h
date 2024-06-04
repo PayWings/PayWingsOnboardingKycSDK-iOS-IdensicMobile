@@ -42,7 +42,7 @@ typedef NS_CLOSED_ENUM(NSInteger, SNSMobileSDKStatus) {
     /// Applicant has been approved
     SNSMobileSDKStatus_Approved,
     
-    /// Applicant action has been completed (see `actionResult` for details)
+    /// Face Auth action has been completed (see `sdk.actionResult` for details)
     SNSMobileSDKStatus_ActionCompleted,
     
 } NS_SWIFT_NAME(SNSMobileSDK.Status);
