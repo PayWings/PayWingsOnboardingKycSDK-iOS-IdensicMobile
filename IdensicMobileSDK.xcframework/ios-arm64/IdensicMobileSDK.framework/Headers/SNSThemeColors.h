@@ -244,4 +244,19 @@
 /// Default is `nil`, the system background color is applied.
 @property (nonatomic, nullable) UIColor *toolbarBackground;
 
+
+#pragma mark - Progress Bar
+
+/// The shimmer color of the progress bars.
+/// Default is #FFFFFF with alpha 50% and #FFFFFF with alpha 20% for the dark appearance.
+@property (nonatomic, nonnull) UIColor *progressBarShimmer;
+
+/// The tint color of the progress bars.
+/// Default is equal to the `.contentInfo` color.
+@property (nonatomic, nonnull) UIColor *progressBarTint;
+
+/// Used as a background color for the progress bars.
+/// Default is equal to the `.backgroundNeutral` color.
+@property (nonatomic, nonnull) UIColor *progressBarBackground;
+
 @end

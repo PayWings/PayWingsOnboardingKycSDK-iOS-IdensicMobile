@@ -96,8 +96,8 @@
 /// Used for "Other" option on Agreement screen.
 /// Default is a earth icon.
 @property (nonatomic, nonnull) UIImage *iconOtherCountry;
-
-/// Used to compose the auto-generated `pictureSuccess`.
+ 
+/// Used to compose the auto-generated `pictureSuccess` and `pictureEidDone`.
 /// Default is a checkmark icon.
 @property (nonatomic, nonnull) UIImage *iconSuccess;
 
@@ -159,6 +159,29 @@
 /// Displayed at the Camera Screen before the back side of a document is going to be captured.
 /// Default is an ID document with a rotating arrow below.
 @property (nonatomic, nullable) UIImage *pictureDocumentFlip;
+
+/// Displayed at the eID Pin Type Screen.
+/// Default is an eID document in the hand.
+@property (nonatomic, nullable) UIImage *pictureEidCard;
+
+/// Displayed at the eID Ident Info Screen.
+/// Default is an phone with PIN code field.
+@property (nonatomic, nullable) UIImage *pictureEidPinCode;
+
+/// Displayed after eID Pin Pad Screen when CAN is required.
+/// Default is an eID document with a showed CAN code.
+@property (nonatomic, nullable) UIImage *pictureEidCanCode;
+
+/// Displayed at the eID Scanning Screen.
+/// Default is an passport document covered by phone.
+@property (nonatomic, nullable) UIImage *pictureEidNFCScan;
+
+/// The "pictureEidDone" image. Could be used if you'd like to override the auto-generated one.
+/// Default is `nil`
+///
+/// @discussion
+/// The auto-generated image looks like the `iconSuccess` icon in the circles composed on the basis of the `colors.contentInfo` and `colors.backgroundInfo` colors.
+@property (nonatomic, nullable) UIImage *pictureEidDone;
 
 
 #pragma mark - Verification Steps

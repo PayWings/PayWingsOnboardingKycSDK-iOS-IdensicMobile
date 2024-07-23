@@ -56,6 +56,9 @@ typedef NS_ENUM(NSUInteger, SNSDoubleSidePromptAction) {
 /// Default is `.large`.
 @property (nonatomic, nonnull, readonly) UIContentSizeCategory effectiveContentSizeCategory;
 
+/// Reports whether or not the sdk is currently using accessibility sizes to adjust layout metrics.
+/// Default is `false`.
+@property (nonatomic, readonly) BOOL shouldAdjustSizesForAccessibility;
 
 #pragma mark - Common
 

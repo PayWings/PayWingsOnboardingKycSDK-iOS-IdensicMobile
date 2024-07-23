@@ -16,4 +16,7 @@
 
 @interface SNSThemeSection : NSObject
 
++ (nonnull instancetype)new NS_UNAVAILABLE;
+- (nonnull instancetype)init NS_UNAVAILABLE;
+
 @end

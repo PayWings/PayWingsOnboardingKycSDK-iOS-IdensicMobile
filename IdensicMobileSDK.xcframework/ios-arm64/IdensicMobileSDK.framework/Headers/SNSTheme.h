@@ -27,10 +27,10 @@ typedef NSString * _Nullable(^SNSAssetNameHandler)(NSString * _Nonnull assetName
 
 #pragma mark -
 
-@property (nonatomic, nonnull) SNSThemeFonts *fonts;
-@property (nonatomic, nonnull) SNSThemeColors *colors;
-@property (nonatomic, nonnull) SNSThemeImages *images;
-@property (nonatomic, nonnull) SNSThemeMetrics *metrics;
+@property (nonatomic, nonnull, readonly) SNSThemeFonts *fonts;
+@property (nonatomic, nonnull, readonly) SNSThemeColors *colors;
+@property (nonatomic, nonnull, readonly) SNSThemeImages *images;
+@property (nonatomic, nonnull, readonly) SNSThemeMetrics *metrics;
 
 #pragma mark -
 
