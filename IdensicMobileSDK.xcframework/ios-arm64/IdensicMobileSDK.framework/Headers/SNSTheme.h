@@ -69,10 +69,7 @@ typedef NS_ENUM(NSInteger, SNSThemeDimmingEffect) {
 
 #pragma mark - Buttons
 
-/**
- * Matches to `fonts.subtitle1` by default
- */
-@property (nonatomic, nullable) UIFont *sns_actionButtonFont;
+@property (nonatomic, nullable) UIFont *sns_actionButtonFont SNS_THEME_DEPRECATED("Use `fonts.button` instead.");
 @property (nonatomic) CGFloat sns_actionButtonCornerRadius SNS_THEME_DEPRECATED("Use `metrics.buttonCornerRadius` instead.");
 @property (nonatomic) CGFloat sns_actionButtonHeight SNS_THEME_DEPRECATED("Use `metrics.buttonHeight` instead.");
 
@@ -85,10 +82,7 @@ typedef NS_ENUM(NSInteger, SNSThemeDimmingEffect) {
 @property (nonatomic, nullable) UIColor *sns_alternativeButtonBackgroundColor SNS_THEME_DEPRECATED("Replaced with `colors.secondaryButtonBackground`");
 @property (nonatomic, nullable) UIColor *sns_alternativeButtonHighlightedTitleColor SNS_THEME_DEPRECATED("Replaced with `colors.secondaryButtonContentHighlighted`");
 @property (nonatomic, nullable) UIColor *sns_alternativeButtonHighlightedBackgroundColor SNS_THEME_DEPRECATED("Replaced with `colors.secondaryButtonBackgroundHighlighted`");
-/**
- * Matches to `colors.secondaryButtonContent` by default
- */
-@property (nonatomic, nullable) UIColor *sns_alternativeButtonBorderColor;
+@property (nonatomic, nullable) UIColor *sns_alternativeButtonBorderColor SNS_THEME_DEPRECATED("Doesn't work anymore. Replaced with `colors.secondaryButtonContent`");
 
 #pragma mark - Oops Screen
 

@@ -77,6 +77,10 @@
 /// Default is an exclamation mark in the triangle.
 @property (nonatomic, nonnull) UIImage *iconNotice;
 
+/// Used to mark items to be opened externally
+/// Default is a square with a diagonal arrow at the top right corner.
+@property (nonatomic, nonnull) UIImage *iconExternalLink;
+
 /// Used for unmarked checkboxes.
 /// Default is an empty rectangle icon with `contentWeak` border color.
 @property (nonatomic, nonnull) UIImage *iconCheckboxOff;

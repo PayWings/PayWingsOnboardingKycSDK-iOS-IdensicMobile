@@ -27,6 +27,10 @@
 /// Default is System Regular, 14pt.
 @property (nonatomic, nonnull) UIFont *body;
 
+/// Used for buttons in conjunction with `colors.primaryButtonForeground`, `colors.secondaryButtonForeground` and `colors.linkButtonContent`.
+/// Default is System Semibold, 18pt.
+@property (nonatomic, nonnull) UIFont *button;
+
 /// Used for minor captions in conjunction with `colors.contentWeak` mostly.
 /// Default is System Regular, 12pt.
 @property (nonatomic, nonnull) UIFont *caption;
